@@ -1,0 +1,22 @@
+作业与练习：
+一、基础知识
+1、名词解释。（缩写需要给出全称与中文翻译）
+Inline Styles，Shorthand property,  HTML Entities
+
+2、简答以下问题
+1） 给出CSS语法。如果一个property重复定义，例如：“p {color:red;color:blue}”，哪个定义将发挥作用。
+2）以下哪些selector是不正确的。
+“#me”  “.intro”  “p a”   “p.a”   “p+a”  “p,a”  “p#me”   “p:hover”  
+3）你如何看待Inline Style？检查你设计的网页，如果有Inline style，研究如何去除它们。
+4）列出背景，文字格式最常用的属性。
+5）颜色的值可以是名字、HEX、RGB以及其他CSS3支持的值。你在设计中如何选择？
+5）简述通用字体 serif，sans-serif，monospace 之间的区别。
+6）定义字体通常会定义多种字体组合。某中文网页，需要从以下字体中选出三种, 并正确排序组成一个组合来定义元素<p>的字体。
+a.宋体  b.黑体  c. Times New Roman   d.Times   e. Courier  f. Monospace 
+7）描述常见Font Size的单位即其转换关系。
+8）Display element <h1> in a small-caps font.
+9）以下哪些元素不符合HTML5的风格
+<b>  <p align=”center”>  <center>  <p class=”center”>
+10）请描述元素<img>的alt属性。
+11）元素<table>内部有哪些元素？它们之间的结构关系是什么？<th>与<td>之间的区别是什么？
+12）写出常见实体及名称

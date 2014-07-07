@@ -1,0 +1,33 @@
+body{
+	background-image:url("images/background.jpg");
+	background-size:cover;
+}
+#contact{
+	float:left;
+	overflow:hidden;
+	vertical-align: middle;
+}
+#v{
+	float:left;
+	height:100px;
+}
+.img1{
+	height:150px;
+	float:right;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.psg1{
+	background-color:#E8FBFB;
+	border-style:solid;
+	border-width:4px;
+	border-color:#C2E9E9;
+	overflow:hidden;
+	clear:both;
+	text-indent:1em;
+	padding: 5px;
+}
+#all{
+	margin-left:10%;
+	margin-right:10%;
+}

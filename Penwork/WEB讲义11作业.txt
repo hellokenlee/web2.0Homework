@@ -1,0 +1,12 @@
+1、简答以下问题
+1）DOM，BOM，JavaScript Object，Event
+	DOM:文档对象模型(Document Object Model)是W3C组织推荐的处理可扩展置标语言的标准编程接口。DOM可以以一种独立于平台和语言的方式访问和修改一个文档的内容和结构。换句话说，这是表示和处理一个HTML或XML文档的常用方法。DOM实际上是以面向对象方式描述的文档模型。DOM定义了表示和修改文档所需的对象、这些对象的行为和属性以及这些对象之间的关系。可以把DOM认为是页面上数据和结构的一个树形表示，不过页面当然可能并不是以这种树的方式具体实现。
+	
+	BOM:浏览器对象模型（BrowserObjectModel)IE3.0与Netscape Navigator3.0浏览器有浏览器对象模型特性，允许访问和操控浏览器窗口。研发者通过使用BOM，可移动窗口、更改状态栏文本、执行其它不与页面内容发生直接联系的操作。BOM是JavaScript应用中唯一没有相关标准的部分，这是BOM真正独特且经常出现问题的所在。 BOM主要处理浏览器窗口与框架，但事实上，浏览器特有的JavaScript扩展都被认作是BOM的一部分
+	
+	JS object:JavaScript 中的所有事物都是对象：字符串、数字、数组、日期，等等。在 JavaScript 中，对象是拥有属性和方法的数据。
+	
+	事件：JavaScript采用异步事件驱动编程模型，当文档、浏览器、元素或与之相关对象发生特定事情时，浏览器会产生事件。如果JavaScript关注特定类型事件，那么它可以注册当这类事件发生时要调用的句柄。
+	
+2）为什么需要使用javaScript 框架编程
+	A：JavaScript 高级程序设计（特别是对浏览器差异的复杂处理），通常很困难也很耗时。为了应对这些调整，许多的 JavaScript (helper) 库应运而生。这些 JavaScript 库常被称为 JavaScript 框架。这些框架都提供针对常见 JavaScript 任务的函数，包括动画、DOM 操作以及 Ajax 处理。

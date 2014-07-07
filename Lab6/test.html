@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script src="prototype.js"></script>
+    <script>
+		//time可以通过用户输入的值来动态改变，当用户完成输入后用过clearInterval(interval)清理
+		//之前的调度器，然后再调用run方法，这样修改后的调度器就起作用了。
+		var time = 500; 
+		var interval; //调度器对象。
+		var i=0;
+		function run(){
+		  interval = setInterval("fun()",time);
+		}
+		function fun(){
+		  alert(('div.text').val());
+		  i++;
+		}
+    </script>
+</head>
+<body>
+	<button onclick="run()">te</button>
+	<div class="text">0</div>
+</body>
+</html>

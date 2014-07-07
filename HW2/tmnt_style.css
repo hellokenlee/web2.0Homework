@@ -1,0 +1,118 @@
+body{
+	background-image:url("images/background.png");
+	background-repeat: repeat;
+	font-size:8pt;
+	font-family:Verdana,Tahoma,Sans-serif;
+	margin:0;
+	position:relative;
+}
+#banner{
+	background-image:url("images/bannerbackground.png");
+	background-repeat:repeat-x;
+	height:50px;
+}
+h1{
+	font-size:24pt;
+	font-family:Tahoma,Verdana,Sans-serif;
+	text-align:center;
+}
+#main{
+	margin:0 auto;
+	border-width:4px;
+	border-style:solid;
+	border-color:gray;
+	width:800px;
+	overflow:hidden;
+	position:relative;
+}
+#rotten{
+	width:550px;
+	height:83px;
+	background-image:url("images/rottenbackground.png");
+	background-repeat:repeat-x;
+	float:left;
+
+}
+
+#pre{
+	font-size:48pt;
+	color:red;
+}
+#review_number{
+	font-size:8pt;
+	color:white;
+}
+#intro{
+	width:250px;
+	background-color:#A2B964;
+	font-size:8pt;
+	font-family:Arial,Serif;
+	float:right;
+}
+dt{
+	font-weight:bold;
+}
+#intro_text{
+	background-color:#A2B964;
+	font-size:8pt;
+	font-family:Arial,Serif;
+	padding:10px;
+}
+#r{
+	float:left;
+}
+.rec{
+	font-size:8pt;
+	background-color:#E1D697;
+	font-weight:bolder;
+	border-color:gray;
+	border-width:2px;
+	border-style:solid;
+	font-family:Verdana,Tahoma,Sans-serif;
+	padding:8px;
+	overflow:hidden;
+}
+.criticism_col{
+	width:550px;
+	overflow:hidden;
+}
+#colum1{
+	float:left;
+	width:47%;
+	margin-left:2%;
+	overflow:hidden;
+	margin-top:1%;
+}
+#colum2{
+	float:right;
+	width:47%;
+	margin-right:2%;
+	margin-top:1%;
+}
+.like_or_dislike{
+	float:left;
+	margin-right:5px;
+}
+.people{
+	float:left;
+	margin-right:5px;
+}
+.crit{
+	margin-bottom:3em;
+}
+#main .pages{
+	position:absolute;
+	width:850px;
+	background-color:#A2B964;
+	padding:5px;
+	text-align:center;
+	bottom:0px;
+	z-index:2;
+
+}
+#w3c{
+	position:absolute;
+	right:-5px;
+	bottom:-15px;
+	z-index:3;
+}

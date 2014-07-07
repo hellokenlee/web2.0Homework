@@ -1,0 +1,85 @@
+by KenLee@2013 sysu,China
+一.名词解释
+	1:WWW：The World Wide Web (abbreviated as WWW or W3,commonly known as the web)[1] （万维网）is a system of interlinked hypertext documents accessed via the Internet. [1]（是一个相互关联的通过因特网访问超链接文档的系统，）
+	2.HTML:HyperText Markup Language (HTML) is the main markup language for creating web pages and other information that can be displayed in a web browser.[2](超文本标记语言 是一种“主要为创建网页和其他可以在浏览器显示的信息”设计的语言)
+	3.HTTP:The Hypertext Transfer Protocol (HTTP) is an application protocol for distributed, collaborative, hypermedia information systems.[3](超文本传输协议 是一种用于分布式、协作式、超媒体信息系统的应用层网络协议)
+	4.URL:A uniform resource locator, abbreviated URL, also known as web address, is a specific character string that constitutes a reference to a resource. [4](统一资源定位符，也叫网络地址，是一个特殊的包含一个资源的引用的字符串)
+	5.URI: In computing, a uniform resource identifier (URI) is a string of characters used to identify a name of a web resource.[5](在信息科学中，统一资源标识符是一个字符串用来标示一个网络资源的名字)
+		
+	[1] :"WWW" refer to wikipedia. htttp://en.wikipedia.org/wiki/Www
+	[2]: “HTML”refer to wikipedia.  http://en.wikipedia.org/wiki/Html
+	[3]: Fielding, Roy T.; Gettys, James; Mogul, Jeffrey C.; Nielsen, Henrik Frystyk; 	     Masinter, Larry; Leach, Paul J.; Berners-Lee (June 1999). "RFC 2616: Hypertext 	     Transfer Protocol – HTTP/1.1".
+	     “HTTP”refer to wikipedia   http://en.wikipedia.org/wiki/Http 
+	[4]:  “URL” refer to wikipedia   http://en.wikipedia.org/wiki/Url
+	[5]: “Uniform resource identifier”refer to wikipedia   	http://en.wikipedia.org/wiki/Uniform_resource_identifier
+
+二.
+	1.WEB的发明人？发明的基本动机？
+		发明人：蒂姆·伯纳斯-李 和 罗伯特·卡里奥；发明动机：1980年蒂姆·伯纳斯-李构		建的ENQUIRE项目。想构建一个类似维基百科的超文本在线编辑数据库。
+	2.雅虎，谷歌的创始人及其贡献？
+		雅虎创始人：杨致远、大卫·费罗	贡献：提供门户网站的概念，早期用户进入互联网的入口
+		谷歌创始人：拉里·佩奇、谢尔盖·布林  贡献：提供搜索引擎概念，创立网页重要程度评估标准，现代用户互联网入口。
+	3.HTTP标准及其发布机构？
+		标准：一系列的RFC，其中最著名的是RFC 2616  发布机构：万维网协会（World Wide Web Consortium）和Internet工作小组（Internet Engineering Task For
+ce）
+	4.HTTPGET请求的基本过程
+		1）连接 当我们输入这样一个请求时，首先要建立一个socket连接，因为socket是通过ip和端口建立的，所以之前还有一个DNS解析过程，把www.mycompany.com 变成ip，如果url里不包含端口号，则会使用该协议的默认端口号。DNS的过程是这样的：首先我们知道我们本地的机器上在配置网络时都会填写DNS，这样本机就会把这个url发给这个配置的DNS服务器，如果能够 找到相应的url则返回其ip，否则该DNS将继续将该解析请求发送给上级DNS(应该是该DNS服务器配置了DNS，就可以将它请求再向上一级发啦)，整个DNS可以看做是一个树状结构，该请求将一直发送到根直到得到结 果。现在已经拥有了目标ip和端口号，这样我们就可以打开socket连接了。
+		2）请求 连接成功建立后，开始向web服务器发送请求，这个请求一般是GET或POST命令（POST用于FORM参数的传递）。
+ 		3）应答 web服务器收到这个请求，进行处理。Web服务器首先传送一些HTTP头信息，然后传送具体内容（即HTTP体信息），HTTP头信息和HTTP体信息之间用一个空行分开。
+			常用的HTTP头信息有：
+　　				① HTTP 1.0 200 OK 　这是Web服务器应答的第一行，列出服务器正在运行的HTTP版本号和应答代码。代码"200 OK"表示请求完成。
+　　				② MIME_Version:1.0　它指示MIME类型的版本。
+　　				③ content_type:类型　这个头信息非常重要，它指示HTTP体信息的MIME类型。如：content_type:text/html指示传送的数据是HTML文档。
+　　				④ content_length:长度值　它指示HTTP体信息的长度（字节）。
+
+
+		4）关闭连接：当应答结束后，必须与Web服务器断开，以保证其它Web浏览器能够与Web服务器建立连接。
+
+三．简述GET，POST，HEAD的功能和区别
+	GET 用于信息获取，而且应该是 安全的和幂等的。所谓安全的意味着该操作用于获取信息而非修改信息。换句话说，GET 请求一般不应产生副作用。幂等的意味着对同一 URL 的多个请求应该返回同样的结果。Get方法通过URL请求来传递用户的输入。
+	POST 表示可能改变服务器上的资源的请求。Post方法通过另外的形式实现用户输入。
+	HEAD 发出请求之后，服务器返回的只是响应标题，而不会返回被请求的文挡，HEAD方法通用于一些搜索引擎中
+
+
+
+
+四.Web 2.0
+	Web 2.0，指的是一个利用Web的平台，由用户主导而生成的内容互联网产品模式，为了区别传统由网站雇员主导生成的内容而定义为web2.0。[1]
+	Web 2.0的应用可以让人了解到目前万维网正在进行的一种改变——从一系列网站到一个成熟的为最终用户提供网络应用的服务平台。这种概念的支持者期望Web 2.0服务将在很多用途上最终取代桌面计算机应用。Web 2.0并不是一个技术标准，不过它包含了技术架构及应用软件。它的特点是鼓励作为信息最终利用者通过分享，使得可供分享的资源变得更丰盛；相反的，过去的各种网上分享方式则显得支离破碎。
+	Web 2.0是网络运用的新时代，网络成为了新的平台，内容因为每位用户的参与（Participation）而产生，参与所产生的个人化（Personalization）内容，借由人与人（P2P）的分享（Share），形成了现在Web 2.0的世界。Darcy DiNucci 在她 1999年的文章 "Fragmented Future" 中第一次使用了这个词汇，但现在我们所以为的 Web 2.0 一直要到 2004年才出现。Tim O'Reilly 提到他与工作伙伴在一次脑力激荡中提出了 "Web 2.0" 这个概念，他的定义是：
+	Web 2.0 对电脑工业来说是一种商业革命，起因于开始把互联网当成交易平台，并企图去理解在新的平台上通往成功的规则。[2]
+	一些科技专家们，特别是蒂姆·伯纳斯-李，质疑是否有人可以有意义地应用这个名词，因为许多Web 2.0的技术组件从早年的Web开始就存在着。[3][4]
+	IBM的社交网络分析师，Dario de Judicibus，提出不一样的定义，特别是在社区交互和架构现实上。
+	Web 2.0 是一个架构在知识上的环境，人与人之间交互而产生出的内容，经由在服务导向架构中的程序，在这个环境被发布，管理和使用。[5]
+	将纷繁芜杂的Web 2.0现象放置于科技发展与社会变革的大视野，Web 2.0可以说是信息通讯技术引发信息革命、知识社会所带来的面向未来、以人为本的创新2.0模式在互联网领域的典型体现，是由专业人员织网到所有用户参与织网的创新民主化进程的生动注释。[6]
+	Web 2.0是一种新的互联网方式，通过网络应用 (Web Applications）促进网络上人与人间的信息交换和协同合作，其模式更加以用户为中心。典型的Web 2.0站点有：网络社区、网络应用程序、社交网站、博客、Wiki等等。
+	Web（在这里，指代“Web 2.0”）最早的概念包括常更新的静态HTML页面。而.com时代的成功则是依靠一个更加动态的Web（指代“Web 1.5”），其中CMS（内容管理系统）可以从不断变化的内容数据库中即时生成动态HTML页面。	从这两种意义上来说，所谓的眼球效应则被认为是固有的Web感受，也因此页面点击率和外观成为了重要因素。
+	Web 2.0的支持者认为Web的使用正日渐以交互性和未来的社会性网络为导向，所提供的服务内容，通过或不通过创建一个可视的、交互的网页来充分挖掘网络效应。某种观点认为，和传统网站相比，Web 2.0的网站更多表现为Point of presence或者是用户产生内容的门户网站。
+	另一方面，其实早在1999年，著名的管理学者彼得·杜拉克 (Peter F. Drucker)就曾指出当时的信息技术发展走错了方向，因为真正推动社会进步的，是"Information Technology"里的"Information"，而不是"Technology"。如果仅仅着重技术层面而忽略了信息的话，就只是一具空的躯壳，不能使社会增值。而Web 2.0很明显是通过参与者的交互：不论是提供内容、为内容索引或评分，都能够使他们所使用的平台增值。通过参与者的交互，好的产品或信息本着它的口碑，从一小撮用户扩展到一大班人，一但超过了临界质量，就会“像病毒一样广泛流传”（葛拉威尔，2002）。
+正如同创新2.0所倡导的以人为本、草根创新、开放创新、共同创新理念，Web 2.0的核心概念是互动、分享与关系，所有的网络行为，都可用“互动、分享、关系”的概念来作诠释。
+	Web 2.0中出现的数据联合和消息传送能力，提出了潜在的一种可能性——在完全不同的在线社区之间创建一个更加紧密的社会构造。同时还出现了一些新的术语来集合性地代表这些共同的社团，包括blogshpere：网志的世界，syndisphere：内容联合发布，以及 wikisphere，然而其他的观察者认为这些措辞和内在的含义太空泛了。
+由于Web 2.0的网络交互性，信息的快速传播性，以及透明性。在不久的将来，网络也可以作为推动国家民主的一种有效的工具，作为吸取广泛民众意见的参考。
+	Web 2.0产品的例子
+		维基百科
+		Twitter
+		Facebook
+		YouTube
+		flickr
+		Google阅读器
+		豆瓣网
+		互动百科
+		百度贴吧
+		人人网
+		新浪微博
+		优酷网
+		知乎
+外部链接
+	Web 2.0 大会 http://www.web2summit.com/web2011
+参考文献
+
+	 林东清. 资讯管理：e化企业的核心竞争能力. 台北市: 智胜文化. 2010: 13–13. ISBN 957-729-523-1.
+	Tim O'Reilly. Web 2.0 Compact Definition: Trying Again. 2006-12-10 [2007-01-20].
+	developerWorks Interviews: Tim Berners-Lee. 7-28-2006 [2007-02-07].
+	Nate Anderson. Tim Berners-Lee on Web 2.0: "nobody even knows what it means". arstechnica.com. 2006-09-01 [2006-09-05].
+	Dario de Judicibus. World 2.0. 2008-01-02 [2008-01-04].
+	mGov Lab China. "Innovation 2.0 in a Knowledge-based Society" Seminar at Peking University. mgov.cn. 2008-11-23 [2009-05-01].

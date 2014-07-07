@@ -1,0 +1,93 @@
+
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<link rel="stylesheet" type="text/css" href="static/main_style.css" />
+		<title>{{info[0]}} - Rancid Tomatoes</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" type="image/x-gif" />
+	</head>
+	<body>
+		<div id="banner">
+			<img src="static/images/banner.png" alt="banner">
+		</div>
+		<h1>{{info[0]}}({{info[1]}})</h1>
+		<div id="main">
+			<div class="pages">
+			<span>(1-{{len(reviews)}}) of {{info[3]}}</span>
+		</div>
+			<div id="rotten">
+				{%if digit <= 65 %}
+					<img id="r" src="static/images/rottenbig.png" alt="rotten">
+				{%end%}
+				{%if digit > 65 %}
+					<img id="r" src="static/images/freshbig.png" alt="fresh">
+				{%end%}
+				<span id="pre"><strong>{{info[2]}}%</strong></span>
+				<span id="review_number">({{info[3]}} reviews total)</span>
+			</div>
+			<div id="intro">
+				<img src="static/moviefiles/{{movie}}/generaloverview.png" alt="gen">
+					<dl id="intro_text">
+					{%for i in range(0,l)%}					
+						<dt>{%raw keys[i] %}</dt>
+						<dd>{%raw vals[i] %}</dd>
+					{% end %}
+					</dl>
+			</div>
+
+			<div class="criticism_col">
+				<div id="colum1">
+				{% for i in range(0,len(reviews)/2) %}
+					<p class="rec">
+						{% if (reviews[i])[1]=="ROTTEN"%}						
+							<img class="like_or_dislike" src="static/images/rotten.gif" alt="dislike">
+						{% end %}
+						{% if (reviews[i])[1]=="FRESH"%}						
+							<img class="like_or_dislike" src="static/images/fresh.gif" alt="like">
+						{% end %}
+
+						<q>{{(reviews[i])[0]}}</q>
+					</p>
+					<p class="crit">
+						<img class="people" src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
+						{{(reviews[i])[2]}} <br />
+						<I>{{(reviews[i])[3]}}</I>
+					</p>
+				{%end%}
+					
+				</div>
+
+				<div id="colum2">
+				{%for i in range(len(reviews)/2,len(reviews)) %}
+					<p class="rec">
+						{%if (reviews[i])[1]=="ROTTEN"%}						
+							<img class="like_or_dislike" src="static/images/rotten.gif" alt="dislike">
+						{% end %}
+						{% if (reviews[i])[1]=="FRESH"%}						
+							<img class="like_or_dislike" src="static/images/fresh.gif" alt="like">
+						{% end %}
+						<q>{{(reviews[i])[0]}}</q>
+					</p>
+					<p class="crit">
+						<img class="people" src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
+						{{(reviews[i])[2]}} <br />
+						<I>{{(reviews[i])[3]}}</I>
+					</p>
+				{%end%}
+				</div>
+			</div>
+			
+		</div>	
+		<p id="w3c">
+			<a style="text-decoration: none" href="http://validator.w3.org/check/referer">
+				<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid HTML5" />
+			</a>
+			<br />
+			<a style="text-decoration: none" href="http://jigsaw.w3.org/css-validator/check/referer">
+				<img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS" />
+			</a>
+		</p>
+	
+	</body>
+</HTML>

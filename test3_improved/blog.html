@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<style>
+			#left{
+				width:45%;
+				float:left;
+			}
+			#right{
+				float:right;
+				width:45%;
+			}
+			textarea{
+				vertical-align: bottom
+			}
+			body{
+				margin-left:10%;
+				margin-right:10%;
+			}
+			.com{
+				background:#CCFFFF;
+				border-style: solid;
+				border-width: 3px;
+				border-color: #33FFCC;
+				margin-bottom: 10px;
+				padding: 5px;
+			}
+			#pl{
+				font-color:#009900;
+				font-size:20pt;
+			}
+			#pic{
+				position:relative;
+			}
+			#tooltip{
+				position:absolute;
+			}
+			.comBtn{
+				text-align:right;
+				color: blue;
+				text-decoration: underline;
+			}
+		</style>
+		<link rel="shortcut icon" type="image/gif" href="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/6/fifteen.gif" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<title>Twitter</title>
+		<script>
+			$(document).ready(function(){//js函数实现 利用jsoncallback实现，获取用户tweet
+				$("#CommentBtn").click(function(){
+					$.getJSON('/twitter/'+$("#user").text()+"/tweet?jsoncallback=?",{text:$("#comment_text").val()},function(data) {
+						$("#comment_area").append("<div class='com'><span class= 'name'><strong>"+$("#user").text()+"</strong><br></span><span class='content'>"+data[0]+"</span><br><span class='time'>"+data[1]+"</span><div class='commentlist'><div class='comBtn'>comment</div></div></div>")
+					})
+					$("#comment_text").val("");
+				})
+				$(".comBtn").click(function(){//获取JSon格式评论 并异步刷新页面
+					if ($(this).css("color")=='rgb(0, 0, 255)'){
+						text=$(this).parents(".com").find(".content").text();
+						var com_are=$(this).parents(".com").find(".commentlistarea");
+						var author= $(this).parents(".com").find(".name").text();
+						$.getJSON('/twitter/'+$("#user").text()+"/comment?jsoncallback=?",{author:author,text:text},function(data) {
+							$.each(data, function(i, d){
+								com_are.append('<br><div><strong>'+d["comment_by"]+'</strong></div><span>'+d["comment_content"]+'</span><span style="float:right">'+d["comment_date"]+'</span><br>');
+							})
+							com_are.append('<br><div><strong>Your Comment:</strong></div><textarea  type="text" class="comment_text" cols=40 rows=2 name="comtext"></textarea><input class="CommentSubmitBtn" onclick="submitComment($(this))"type="button" value="Comment!" />');
+						})
+						$(this).css("color","gray");
+					}
+				})
+				
+				var mouseon=false;//下面实现鼠标跟随悬浮框
+				// $('#a')是要有mouseover出息提示信息的对象;
+				$('#a').mouseover(function(e) {
+							//取得该对象的title属性作为提示信息显示，当然你也可以指定其他属性;
+					tip = "这是一个悬浮窗！";
+							// 判断当前是否鼠标停留在对象上
+					mouseon=true;
+							// 创建提示信息的容器，样式自定;
+					$("#pic").append('<div id="tooltip"><div>' + tip + '</div></div>');
+							// 取得鼠标坐标来指定提示容器的位置;
+					$('#tooltip').css({
+						top:e.pageY,
+						left:e.pageX - $("#tooltip").width()
+					}).show();
+				}).mousemove(function(e){
+					$('#tooltip').css({
+						top:e.pageY - 35,//e.pageX和e.pageY是鼠标坐标
+						left:e.pageX - $("#tooltip").width()+36
+					});
+				}).mouseout(function() {
+					if(mouseon==true){
+						$(this).attr('title',$('#tooltip div').html());
+						$('#tooltip').remove();
+						mouseon=false;
+					}
+				});
+			});
+			function submitComment(Btn){//提交评论
+				text=Btn.parents(".commentlistarea").find(".comment_text").val();
+				alert(text);
+				content=Btn.parents(".com").find(".content").text();
+				var com_are=Btn.parents(".com").find(".commentlistarea");
+				var author= Btn.parents(".com").find(".name").text();
+				$.getJSON('/twitter/'+$("#user").text()+"/commentsubmmit?jsoncallback=?",{author:author,content:content,text:text},function(data){
+					com_are.append('<br><div><strong>'+$("#user").text()+'</strong></div><span>'+text+'</span><span style="float:right">'+data+'</span><br>');
+				})
+			}
+		</script>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div id="left">
+			
+			<div id="pic">
+				<img id='a' src={{img_url}} />
+			</div>
+			<strong>NAME</strong>
+			<br>
+			&nbsp &nbsp <span id="user">{{name}}</span>
+			<br>
+			<strong>E-MAIL</strong>
+			<br>
+			&nbsp &nbsp {{email}}
+			<br>
+			<strong>AGE</strong>
+			<br>
+			&nbsp &nbsp {{age}}
+		</div>
+		
+		<div id="right">
+			<div id="comment_area">
+			{% for tw in twitters %}
+				<div class="com">
+					<span class= "name">
+						<strong>{{tw["name"]}}</strong>
+					</span>
+					<br>
+					<span class="content">{{tw["content"]}}</span>
+					<br>
+					<span class="time">{{tw["time"]}}</span>
+					<br>
+					<div class="commentlist" >
+						<div class="commentlistarea"></div>
+						<div class="comBtn">comment</div>
+					</div>
+				</div>
+			{% end %}
+			</div>
+			<textarea type="text" id="comment_text" cols=60 rows=8 name="com"></textarea>
+			<input id="CommentBtn" type="button" value="submmit Twitter" />
+			<a href="/logout">logout</a>
+		</div>
+		
+	</body>
+</HTML>

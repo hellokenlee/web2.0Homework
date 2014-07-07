@@ -1,0 +1,51 @@
+一、基础知识
+1、名词解释（缩写需要给出全称与中文翻译）
+1）HTML，Tag|start tag|end tag, HTML Elements, Empty HTML Element, HTML Attribute, CSS。
+	① HTML:HyperText Markup Language (HTML) is the main markup language for creating web pages and other information that can be displayed in a web browser.[2](超文本标记语言 是一种“主要为创建网页和其他可以在浏览器显示的信息”设计的语言)
+	② Tag|start tag|end tag:  标记(tag)是指元素的开始或者结束标记。一个开始标记（Start tag）表示一个元素的开始,标记本身还可以包含属性。一个结束标记(end tag)，使用和其实标记完全相同的元素名但前面附加一个斜线字符 </tag>。
+	③HTML Elements： HTML元素（HTML Elements）是HTML文件的一个基本组成单元。HTML文件采用采用树形结构安排HTML元素。更进一步的说，一个 HTML元素是一个满足一项或多项DTD要求的元素。HTML元素可以拥有属性和内容。
+	④HTML Attribute： HTML 属性（Attribute）是用来指示元素的附加的性质。一般以名字-值的形式出现，中间用“=”分开，是写在一个元素的开始标记里面的。
+	⑤CSS： 层叠样式表（Cascading Style Sheets，简写CSS），是一种用来为结构化文档（如HTML文档或XML应用）添加样式（字体、间距和颜色等）的计算机语言，由W3C定义和维护。
+
+2)一段HTML描述：<a href = "http://www.w3schools.com">This is a link<...
+请描述下面概念指代的内容
+HTML Element:   <a href = "http://www.w3schools.com">This is a link<...
+HTML Tag:   <a>...</a>
+End Tag:   </a>
+Attribute & Value:   Attribute:   href
+		     Value:   "http://www.w3schools.com"
+
+2、简答以下问题
+1）简述<!DOCTYPE>的作用？并给出HTML5的文档申明。
+答：<!DOCTYPE>是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该使用什么样的文档类型定义（DTD）来解析文档。
+
+2）Headings为什么很重要？
+答：headings是网页html 中对文本标题所进行的着重强调的一种标签，它的正确使用能让页面的层级关系更清楚，让搜索引擎更好地抓取和分析出页面的主题内容，提高引擎优化的分值，让你的网页在搜索引擎中更靠前。
+
+3）HTML元素的通用属性title的效果是什么？
+答：让鼠标经过的时候显示title的内容。
+
+4）如何运用<meta>元素，使网页10秒刷新一次？
+答：<meta http-equiv="refresh" content="10";URL="http://ss.sysu.edu.cn">
+
+5）元素<pre>与<p>有哪些区别？
+答：pre是预留格式格式化文本标签，它保留在源码里面的所有格式。而<p>只是显示文字内容，特殊符号则需要用代号来实现。
+
+6）例举元素<a>的target属性的值，简述它们的作用
+答：_blank  浏览器总在一个新打开、未命名的窗口中载入目标文档。
+    _parent  这个目标使得文档载入父窗口或者包含来超链接引用的框架的框架集。如果这个引用是在窗口或者在顶级框架中，那么它与目标 _self 等效。
+    _self  这个目标的值对所有没有指定目标的 <a> 标签是默认目标，它使得目标文档载入并显示在相同的框架或者窗口中作为源文档。这个目标是多余且不必要的，除非和文档标题 <base> 标签中的 target 属性一起使用。
+    _top  这个目标使得文档载入包含这个超链接的窗口，用 _top 目标将会清除所有被包含的框架并将文档载入整个浏览器窗口。
+    framename  在指定的框架中打开被链接文档。
+
+3、简答以下问题
+1）What is CSS selector?
+	CSS-selector are used to declare which part of the markup a style applies to, a kind of match expression.
+2)Three Ways to Insert CSS?
+	1.在head标签中加载一个CSS文件(利用link标签)。
+	2.直接把CSS内容写在HTML文件的head标签中。（使用style标签）
+	3.直接在需要调节样式处使用style属性对标签加载样式。
+
+3)How to change a web page background to yellow?
+	在css中把body和title的background-color调成黄色。
+	

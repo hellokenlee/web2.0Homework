@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<style>
+			#left{
+				width:400px;
+				float:left;
+			}
+			#right{
+				float:right;
+				width:600px;
+			}
+			body{
+				margin-left:10%;
+				margin-right:10%;
+			}
+			.com{
+				background:#CCFFFF;
+				border-style: solid;
+				border-width: 3px;
+				border-color: #33FFCC;
+				margin:10px;
+			}
+			#pl{
+				font-color:#009900;
+				font-size:20pt;
+			}
+			#pic{
+				position:relative;
+			}
+			#tooltip{
+				position:absolute;
+			}
+		</style>
+		<link rel="shortcut icon" type="image/gif" href="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/6/fifteen.gif" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<title>Twitter</title>
+		<script>
+			$(document).ready(function(){//js函数实现 利用jsoncallback实现
+				$("#CommentBtn").click(function(){
+					$.getJSON('/twitter/'+$("#user").text()+"/comment?jsoncallback=?",{text:$("#comment_text").val()},function(data) {
+						$("#comment_area").append("<div class='com'><span class='content'>&nbsp&nbsp"+data[0]+"</span><br><span class='time'>&nbsp&nbsp"+data[1]+"</span></div>")
+					})
+					$("#comment_text").val("");
+				})
+				
+				
+			var mouseon=false;
+			// $('#a')是要有mouseover出息提示信息的对象;
+			$('#a').mouseover(function(e) {
+						//取得该对象的title属性作为提示信息显示，当然你也可以指定其他属性;
+				tip = "这是一个悬浮窗！";
+						// 判断当前是否鼠标停留在对象上
+				mouseon=true;
+						// 创建提示信息的容器，样式自定;
+				$("#pic").append('<div id="tooltip"><div>' + tip + '</div></div>');
+						// 取得鼠标坐标来指定提示容器的位置;
+				$('#tooltip').css({
+					top:e.pageY,
+					left:e.pageX - $("#tooltip").width()
+				}).show();
+			}).mousemove(function(e){
+				$('#tooltip').css({
+					top:e.pageY - 35,
+					left:e.pageX - $("#tooltip").width()+36
+				});
+			}).mouseout(function() {
+				if(mouseon==true){
+					$(this).attr('title',$('#tooltip div').html());
+					$('#tooltip').remove();
+					mouseon=false;
+				}
+			});
+			});
+		</script>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div id="left">
+			
+			<div id="pic">
+				<img id='a' src={{img_url}} />
+			</div>
+			<strong>NAME</strong>
+			<br>
+			&nbsp &nbsp <span id="user">{{name}}</span>
+			<br>
+			<strong>E-MAIL</strong>
+			<br>
+			&nbsp &nbsp {{email}}
+			<br>
+			<strong>AGE</strong>
+			<br>
+			&nbsp &nbsp {{age}}
+		</div>
+		
+		<div id="right">
+			<div id="comment_area">
+			{% for tw in twitters %}
+				<div class="com">
+					<span class="content">&nbsp {{tw["content"]}}</span>
+					<br>
+					<span class="time">&nbsp {{tw["time"]}}</span>
+				</div>
+			{% end %}
+			</div>
+			<textarea type="text" id="comment_text" cols=50 rows=12 name="com"></textarea>
+			<input id="CommentBtn" type="button" value="submmit Twitter" />
+			<a href="/logout">logout</a>
+		</div>
+		
+	</body>
+</HTML>
